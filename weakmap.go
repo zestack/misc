@@ -53,6 +53,7 @@ func (w *WeakMap) Len() int {
 	return v
 }
 
+// TODO(hupeh): 是否需要引用次数，当次数归零时才被清理
 func (w *WeakMap) finalizer(key any) {
 	ptr := reflect.ValueOf(key).Pointer() // uintptr(unsafe.Pointer(&key))
 	w.l.Lock()
