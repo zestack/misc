@@ -1,7 +1,6 @@
 package misc
 
 import (
-	"crypto/hmac"
 	"crypto/md5"
 	"crypto/sha1"
 	"crypto/sha256"
@@ -26,11 +25,4 @@ func Sha256(str string) string {
 	hash := sha256.Sum256([]byte(str))
 	//return hex.EncodeToString(hash)
 	return fmt.Sprintf("%x", hash)
-}
-
-func Hmac(key, data string) string {
-	h := hmac.New(md5.New, []byte(key))
-	h.Write([]byte(data))
-	//return hex.EncodeToString(h.Sum([]byte("")))
-	return fmt.Sprintf("%x", h.Sum([]byte("")))
 }
